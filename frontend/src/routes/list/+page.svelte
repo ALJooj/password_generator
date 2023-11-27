@@ -35,7 +35,7 @@
                 грузится...
             {:then passes} 
                 {#each passes.all_data as item}
-                    <div class="item">{item[0]} {item[1]}</div>
+                    <div class="item">{item[0]} {item[1]} {item[2]}</div>
                 {/each}
                 
             {/await}

@@ -5,7 +5,7 @@
 	async function postToBack() {
 		const res = await fetch('http://127.0.0.1:8000/api', {
 						method: 'POST',
-						body: JSON.stringify({ len, useNumbers, useSpec }),
+						body: JSON.stringify({ len, useNumbers, useSpec, name }),
 						headers: {
 							'Content-Type': 'application/json'
 						}
@@ -41,6 +41,7 @@
 
 	let generatedPassword = {password: "None"}
 	let showGenerator = true
+	let name = ''
 </script>
 
 
@@ -51,6 +52,11 @@
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
 			<div class="section" on:click={()=>{goto('/list')}}>Show all</div>
 			<h1>Customize your password</h1>
+
+			<div class="section-col">
+				<label for="length">Enter Name:</label>
+				<input bind:value={name} type="text" id="name" class="name">
+			</div>
 			
 			<!-- <div class="regular-text">Length:</div> -->
 			<div class="section">
@@ -79,9 +85,20 @@
 </div>
 
 <style>
+	.name {
+		width: 200px;
+	}
 	.check {
 		min-width: 15px;
 		min-height: 15px;
+	}
+	.section-col {
+		width:100%;
+		margin-left: 16px;
+		margin-bottom: 16px;
+		display: flex;
+		flex-direction: column;
+		justify-content: left;
 	}
 	.section {
 		width:100%;

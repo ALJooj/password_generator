@@ -28,7 +28,8 @@ cursor = connection.cursor()
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS Users (
 id INTEGER PRIMARY KEY,
-password TEXT NOT NULL
+password TEXT NOT NULL,
+name TEXT NOT NULL
 )
 ''')
 
@@ -47,7 +48,7 @@ def hello_world():
 @app.post('/api')
 def hello_world(event: Dict[Any, Any]):
     password = generate_password(event['len'], event['useNumbers'], event['useSpec'])
-    store_password_to_paper(password)
+    store_password_to_paper(password, event['name'])
     return password
 
 
@@ -80,10 +81,10 @@ def get_all_passwords():
     return users
 
 
-def store_password_to_paper(data: str):
+def store_password_to_paper(data: str, name: str):
     connection_local = sqlite3.connect('data.db')
     cursor_local = connection_local.cursor()
-    cursor_local.execute('INSERT INTO Users (password) VALUES (?)', (data, ))
+    cursor_local.execute('INSERT INTO Users (password, name) VALUES (?, ?)', (data, name))
 
     connection_local.commit()
     connection_local.close()
