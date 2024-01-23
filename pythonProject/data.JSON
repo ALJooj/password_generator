@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Augustus Larkin III",
+    "phoneNumber": "210-204-7681",
+    "email": "mason33@donnelly.com",
+    "address": "942 Vandervort Common\nMargaritaland, NE 50702",
+    "userAgent": "Mozilla/5.0 (Macintosh; PPC Mac OS X 10_7_7 rv:3.0; sl-SI) AppleWebKit/534.48.5 (KHTML, like Gecko) Version/5.0.2 Safari/534.48.5",
+    "hexcolor": "#06a58f"
+  },
+  {
+    "name": "Cynthia Moore",
+    "phoneNumber": "+1-671-767-8871",
+    "email": "markus59@hotmail.com",
+    "address": "8284 Zieme Hollow\nPort Rylanchester, NM 19308-5943",
+    "userAgent": "Mozilla/5.0 (X11; Linux i686; rv:6.0) Gecko/20150104 Firefox/36.0",
+    "hexcolor": "#10dbf9"
+  },
+  {
+    "name": "Dr. Weldon Jones III",
+    "phoneNumber": "+1-258-233-9637",
+    "email": "katrina.grady@corwin.com",
+    "address": "938 Kerluke Pike Apt. 060\nLakinfort, WV 22990-7995",
+    "userAgent": "Opera/9.87 (X11; Linux x86_64; sl-SI) Presto/2.10.263 Version/11.00",
+    "hexcolor": "#311e63"
+  },
+  {
+    "name": "Ellsworth Ernser",
+    "phoneNumber": "+1-996-488-6887",
+    "email": "upton.lavina@kiehn.com",
+    "address": "478 Caden Grove Apt. 851\nSouth Noraville, KY 57216",
+    "userAgent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/5362 (KHTML, like Gecko) Chrome/37.0.808.0 Mobile Safari/5362",
+    "hexcolor": "#591c6f"
+  }
+]
