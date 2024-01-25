@@ -42,20 +42,26 @@
 	let generatedPassword = {password: "None"}
 	let showGenerator = true
 	let name = ''
+	let notFilled = true
+
+	$: if (name != '') 
+	{notFilled = false}
+	else notFilled = true
 </script>
-
-
 
 <div class="main-container">
 	<div class="blc-settings">
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<!-- svelte-ignore a11y-no-static-element-interactions -->
-			<div class="section" on:click={()=>{goto('/list')}}>Show all</div>
+			<div class="section-nav-btn" on:click={()=>{goto('/list')}}>Show all</div>
 			<h1>Customize your password</h1>
 
 			<div class="section-col">
 				<label for="length">Enter Name:</label>
 				<input bind:value={name} type="text" id="name" class="name">
+				{#if notFilled}
+					<div class="warning">*This is a mandatory field to fill in</div>
+				{/if} 
 			</div>
 			
 			<!-- <div class="regular-text">Length:</div> -->
@@ -85,6 +91,9 @@
 </div>
 
 <style>
+	.warning {
+		color: red;
+	}
 	.name {
 		width: 200px;
 	}
@@ -99,6 +108,13 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
+	}
+	.section-nav-btn {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-left: 8px;
+		margin-top	: 8px;
 	}
 	.section {
 		width:100%;

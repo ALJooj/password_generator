@@ -8,7 +8,8 @@
 
     onMount( async()=> {
     })
-    allPasswords = getPassesFromBack()
+    // allPasswords = getPassesFromBack()
+    allPasswords = []
 
     async function getPassesFromBack() {
         const res = await fetch('http://127.0.0.1:8000/all_passwords').then(
@@ -35,7 +36,17 @@
                 грузится...
             {:then passes} 
                 {#each passes.all_data as item}
-                    <div class="item">{item[0]} {item[1]} {item[2]}</div>
+                <div class="table-row">
+                    <div class="table-bloc" style="width: 24px;">
+                        {item[0]}
+                    </div>
+                    <div class="table-bloc" style="width: 136px;">
+                        {item[1]}
+                    </div>
+                    <div class="table-bloc"style="width: 136px;">
+                        {item[2]}
+                    </div>
+                </div>
                 {/each}
                 
             {/await}
@@ -44,6 +55,24 @@
 </div>
 
 <style>
+    .table-row {
+        max-width: 440px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .table-bloc {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        height: 40px;
+        border: 4px solid #444444;
+        padding: 0px 8px;
+        overflow-x: auto;
+
+    }
     .passwords-gener {
         display: flex;
         flex-direction: column;

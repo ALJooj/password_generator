@@ -2,10 +2,10 @@ FROM python:3.10.0
 
 WORKDIR /app
 
-COPY . /app/
+COPY . .
 
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--reload"]
+CMD ["uvicorn", "main:app", "--reload"] 
