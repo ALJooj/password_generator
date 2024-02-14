@@ -19,11 +19,3 @@ FROM node:19-alpine3.16
 RUN mkdir /app
 WORKDIR /app
 COPY --from=build /app .
-
-
-EXPOSE 5173
-# ENV HOST=0.0.0.0
-# CMD ["npm","run", "preview","--", "--host", "0.0.0.0"]
-# CMD ["node","build"]
-
-CMD [ "npm", "run", "dev" ]
