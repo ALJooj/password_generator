@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+  server:
+    image: nginx:1.24
+    stdin_open: true # docker run -i
+    tty: true
+    volumes: 
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
   back:
     build: ./backend/
     command: sh -c "uvicorn main:app --reload --port=8000 --host=0.0.0.0"
@@ -9,5 +17,6 @@ services:
   front: 
     build: ./front/my-app/
     ports:
-      - 80:80
-      
+      - 4173:4173
+    stdin_open: true # docker run -i
+    tty: true

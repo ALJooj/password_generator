@@ -3,29 +3,30 @@
     import { v4 as uuid } from 'uuid';
 
 	async function postToBack() {
-		const res = await fetch('http://127.0.0.1:8000/api', {
+		const res = await fetch('/api/api', {
 						method: 'POST',
 						body: JSON.stringify({ len, useNumbers, useSpec, name }),
 						headers: {
 							'Content-Type': 'application/json'
 						}
 					});
+		console.log('asalam', res)
 		let answer = await getAnswerFromBack()
 		return answer
 	}
 
 	async function getAnswerFromBack() {
-		const res = await fetch('http://127.0.0.1:8000/get_from_db').then(
+		const res = await fetch('/api/get_from_db').then(
 			res=> {
 				return res.json()
 			}
 		);
-		console.log(res)
+		console.log('salam', res)
 		return res
 	}
 
 	async function getFromBack() {
-		const res = await fetch('http://127.0.0.1:8000/api').then(
+		const res = await fetch('/api/api').then(
 			res=> {
 				return res.json()
 			}
@@ -42,6 +43,7 @@
 	let generatedPassword = {password: "None"}
 	let showGenerator = true
 	let name = ''
+	let a = ''
 	let notFilled = true
 
 	$: if (name != '') 
@@ -84,6 +86,12 @@
 				generatedPassword = await postToBack()
 			}}>
 				Generate password
+			</button>
+
+			<button class="generate-password" on:click={async(event) => {
+				 a = await getFromBack()
+			}}>
+				test {a}
 			</button>
 
 			<div>The password is: {generatedPassword.password}</div>

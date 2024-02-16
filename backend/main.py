@@ -10,7 +10,13 @@ app = FastAPI()
 
 ul_set = string.ascii_letters
 origins = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "95.163.213.29:80",
+    "http://password_generator-front-1:4173"
+    "http://zatochka.duckdns.org/password",
+    "188.66.38.95:80",
+    "188.66.38.95"
 ]
 
 app.add_middleware(
@@ -39,20 +45,23 @@ connection.close()
 
 
 
+@app.get('/api/api')
+def hello_world():
+    return {"answer": "hello world"}
 
 @app.get('/api')
 def hello_world():
     return {"answer": "hello world"}
 
 
-@app.post('/api')
+@app.post('/api/api')
 def hello_world(event: Dict[Any, Any]):
     password = generate_password(event['len'], event['useNumbers'], event['useSpec'])
     store_password_to_paper(password, event['name'])
     return password
 
 
-@app.get('/get_from_db')
+@app.get('/api/get_from_db')
 def return_last_generated_pass():
     connection_local = sqlite3.connect('data.db')
     cursor_local = connection_local.cursor()
